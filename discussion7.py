@@ -40,7 +40,7 @@ def load_listings(f):
             for i, column in enumerate(header):
                 listing[column] = row[i]
             all_listings.append(listing)
-            return all_listings
+        return all_listings
 
 ###############################################################################
 ##### TASK 2: CALCULATION FUNCTION (single calculation)
@@ -79,7 +79,9 @@ def calculate_avg_price_by_neighbourhood_group_and_room(listings):
     avg_price = {}
     for key in price_sum:
         avg_price[key] = price_sum[key] / price_count[key]
+    print(avg_price)
     return avg_price
+
 
 
 ###############################################################################
@@ -107,8 +109,8 @@ def write_summary_csv(out_filename, avg_prices):
         for key, value in avg_prices.items():
             row = [key[0], key[1], value]
             writer.writerow(row)
+    #pass
             
-
 ###############################################################################
 ##### UNIT TESTS (Do not modify the code below!)
 ###############################################################################
@@ -131,7 +133,7 @@ class TestAirbnbListings(unittest.TestCase):
 
     def test_calculate_avg_price_by_neighbourhood_group_and_room(self):
         averages = calculate_avg_price_by_neighbourhood_group_and_room(self.listings)
-        
+        print(averages)
         # Test a few key combinations from the real data
         self.assertAlmostEqual(averages[('Manhattan', 'Entire home/apt')], 253.74735249621784, places=2)
 
