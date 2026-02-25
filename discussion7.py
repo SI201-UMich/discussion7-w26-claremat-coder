@@ -105,6 +105,8 @@ def write_summary_csv(out_filename, avg_prices):
         writer.writerow(['neighbourhood_group', 'room_type', 'average_price'])
         
         for key, value in avg_prices.items():
+            row = [key[0], key[1], value]
+            writer.writerow(row)
             
 
 ###############################################################################
